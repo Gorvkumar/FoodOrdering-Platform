@@ -203,7 +203,10 @@ const Cart = () => {
                   </div>
                 )}
 
-                <button className="mt-6 w-full rounded-lg bg-orange-600 py-3 font-semibold text-white transition-colors hover:bg-orange-700">
+                <button 
+                  onClick={() => window.location.href = '/checkout'}
+                  className="mt-6 w-full rounded-lg bg-orange-600 py-3 font-semibold text-white transition-colors hover:bg-orange-700"
+                >
                   Proceed to Checkout
                 </button>
 

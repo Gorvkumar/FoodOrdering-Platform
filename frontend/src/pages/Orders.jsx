@@ -8,20 +8,7 @@ const Orders = () => {
   const { user, isLoggedIn, loading } = useAuth();
   const [activeTab, setActiveTab] = useState("ongoing");
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <Navbar />
-        <div className="flex items-center justify-center py-20">
-          <div className="text-center">
-            <div className="mb-4 text-6xl">⏳</div>
-            <p className="text-lg text-gray-600">Loading...</p>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+  
 
   if (!isLoggedIn) {
     return (
