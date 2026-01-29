@@ -20,16 +20,7 @@ const Checkout = () => {
   const tax = subtotal * 0.08;
   const total = subtotal + deliveryFee + tax;
 
-  const handlePayment = async () => {
-    const response = await fetch("http://localhost:3000/api/payment/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount: total }),
-    });
-
-    const data = await response.json();
-    setClientSecret(data.clientSecret);
-  };
+  
 
   const appearance = {
     theme: 'stripe',
