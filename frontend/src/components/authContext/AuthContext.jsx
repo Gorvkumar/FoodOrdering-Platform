@@ -3,6 +3,8 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
+const API_URL = process.env.VITE_API_URL;
+
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
@@ -24,7 +26,7 @@ export const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       
-      const res = await axios.get("http://localhost:3000/api/auth/verify", {
+      const res = await axios.get(`${API_URL}/auth/verify`, {
         withCredentials: true,
       });
 
@@ -42,8 +44,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const res = await axios.post(
-      "http://localhost:3000/api/auth/user/login",
+    const res = await axios.post(`${API_URL}/api/auth/user/login`,
       { email, password },
       { withCredentials: true }
     );
@@ -57,8 +58,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (fullName, email, password) => {
-    const res = await axios.post(
-      "http://localhost:3000/api/auth/user/register",
+    const res = await axios.post(`${API_URL}/api/auth/user/register`,
       { fullName, email, password },
       { withCredentials: true }
     );
@@ -72,8 +72,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await axios.post(
-      "http://localhost:3000/api/auth/user/logout",
+    await axios.post(`${API_URL}/api/auth/user/logout`,
       {},
       { withCredentials: true }
     );
